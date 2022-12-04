@@ -25,7 +25,6 @@ export default function Card({pokemon} ) {
  };
 
   const [pokemonData , setPokemonData] = useState([]);
-  const [getpokemonType , setGetPokemonType] = useState([]);
   const [url, setUrl] = useState('');
   const [pokemonType , setPokemonType] = useState('');
   const [color , setColor] = useState('');
@@ -41,41 +40,39 @@ const getPokemonData = async () => {
 
     fetch(url).then(res=>res.json())
         .then(response=>{
-          console.log(response);
           setPokemonData(response);
-          setGetPokemonType(response.types)
-          setUrl(`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${response.id}.png`);
-          getType();
+          getType(response);
       })
       .catch((err)=>{
           console.log("Err - ",err)
       })
  };
 
-const getType = () => {
+const getType = (data) => {
 
-    const poke_types = getpokemonType.map((type) => type.type.name);
+    setUrl(`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png`);
+    const poke_types = data.types.map((type) => type.type.name);
     setPokemonType(poke_types.find((type) => poke_types.indexOf(type) > -1));
     const pokeType = poke_types.find((type) => poke_types.indexOf(type) > -1);
     setColor(pokemon_colors[pokeType]);
-    console.log(pokeType);
 }
 
 
   return (
     <div>
-        <div className='relative bg-white w-full rounded-lg overflow-hidden shadow-lg shadow-cyan-500/50'>  
+        <div className='mb-8  relative bg-white w-full rounded-lg overflow-hidden shadow-lg shadow-cyan-500/50'>  
 
-            <div  class="absolute h-40	w-full rounded-bl-full rounded-br-full" style={{backgroundColor:color}} />
+            <div  class="absolute md:h-28 lg:h-40 h-48	w-full rounded-bl-full rounded-br-full" style={{backgroundColor:color}} />
+            <div  class="absolute md:h-28 lg:h-40	h-48 w-full rounded-bl-full rounded-br-full opacity-5" style={{backgroundColor:"#000000"}} />
 
-            <div className='h-56  flex  flex-col justify-end items-center'>
+            <div className='lg:h-56 md:h-36 h-80 flex  flex-col justify-end items-center'>
                   <div className='relative flex flex justify-center '>
-                        <img   className='w-2/3'  src={url} alt="Pokemon Img"/>   
+                        <img   className='lg:w-2/3 w-3/6'  src={url} alt="Pokemon Img"/>   
                   </div>  
             </div>
             <div className='mb-4 mt-4 w-full flex  flex-col justify-center items-center' >
-              <h1 className='text-3xl font-bold' >{pokemonData.name}</h1>
-              <h3 className='text-md font-medium	'>{pokemonType}</h3>
+              <h1 className='text-3xl font-bold capitalize' >{pokemonData.name}</h1>
+              <h3 className='text-md font-medium	capitalize'>{pokemonType}</h3>
             </div>
         </div>
 

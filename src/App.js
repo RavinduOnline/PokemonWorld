@@ -58,7 +58,7 @@ function App() {
   return (
     <div>
       <div className='mt-16'></div>
-      <div class="mx-36 grid grid-cols-6 gap-4">
+      <div class="lg:mx-36 md:mx-5 md:grid lg:grid-cols-6 grid-cols-4 gap-4 mx-5">
 
       { pokedata.map((pokemon ,index)=> {
 
