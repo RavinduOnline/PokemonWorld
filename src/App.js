@@ -32,8 +32,8 @@ function App() {
   return (
     <div>
       <Header/>
-      <div className='md:mt-44 mt-36'></div>
-      <div class="lg:mx-36 md:mx-5 mb-5 mx-5">
+      <div className='xl:mt-44 mt-36'></div>
+      <div class="lg:mx-36 xl:mx-5 mb-5 mx-5">
                 <select name="cars" id="cars"
                   value={count}
                   onChange={(e) => setCount(e.target.value)}
@@ -46,7 +46,7 @@ function App() {
                         <option value="1000">1000</option>
                   </select>
       </div>
-      <div class="lg:mx-36 md:mx-5 md:grid lg:grid-cols-6 grid-cols-4 gap-4 mx-5">
+      <div class="md:mx-36 xl:mx-5  md:grid md:grid-cols-6 grid-cols-4 gap-4 mx-5">
 
       { pokedata.map((pokemon ,index)=> {
 

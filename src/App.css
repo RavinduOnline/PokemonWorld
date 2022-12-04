@@ -1,8 +1,8 @@
 
 .bg{
   font-family: "DM Sans", DM Sans;
-  background-image: url("https://i.pinimg.com/originals/8c/82/bc/8c82bcc759a86d7f6257fc8be5cd3a70.png");
-  background-repeat: no-repeat;
+  /* background-image: url("https://i.pinimg.com/originals/8c/82/bc/8c82bcc759a86d7f6257fc8be5cd3a70.png");
+  background-repeat:repeat-y;
   background-size:     cover;      
-  background-position: center center;         
+  background-position: center center;          */
 }
