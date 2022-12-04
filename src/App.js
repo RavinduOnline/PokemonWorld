@@ -1,18 +1,22 @@
 import './App.css';
 import React , { useState, useEffect } from "react";
 import Card from './components/card'
+import Header from './components/header'
 
 function App() {
 
   const [pokedata , setPokeData] = useState([]);  
+  const [count , setCount] = useState('102');  
+
+  
 
   useEffect(() => {
-    getPokemons();
-  }, []);
+      getPokemons();
+  }, [count]);
 
 
  const getPokemons = async () => {
-    const url = `https://pokeapi.co/api/v2/pokemon?limit=102`;
+    const url = `https://pokeapi.co/api/v2/pokemon?limit=${count}`;
 
     fetch(url).then(res=>res.json())
         .then(response=>{
@@ -25,39 +29,23 @@ function App() {
  };
 
 
-//  const createPokemonCard = (pokemon) => {
-//     const pokemonEl = document.createElement('div');
-//     pokemonEl.classList.add('pokemon');
- 
-//     const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
-//     const id = pokemon.id.toString().padStart(3, '0');
- 
-//     const poke_types = pokemon.types.map((type) => type.type.name);
-//     const type = pokemon_types.find((type) => poke_types.indexOf(type) > -1);
-//     const color = pokemon_types[type];
- 
-//     pokemonEl.style.backgroundColor = color;
- 
-//     const pokemonInnerHTML = `
-//      <div class="img-container">
-//          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png"" alt="${name}">
-//      </div>
-//      <div class="info">
-//          <span class="number">#${id}</span>
-//          <h3 class="name">${name}</h3>
-//          <small class="type">Type: <span>${type}</span> </small>
-//      </div>
-//      `;
- 
-//     pokemonEl.innerHTML = pokemonInnerHTML;
- 
-
-//  };
- 
-
   return (
     <div>
-      <div className='mt-16'></div>
+      <Header/>
+      <div className='md:mt-44 mt-36'></div>
+      <div class="lg:mx-36 md:mx-5 mb-5 mx-5">
+                <select name="cars" id="cars"
+                  value={count}
+                  onChange={(e) => setCount(e.target.value)}
+                  >
+                        <option value="102" selected  >102</option>
+                        <option value="50">50</option>
+                        <option value="250">250</option>
+                        <option value="500">500</option>
+                        <option value="750">750</option>
+                        <option value="1000">1000</option>
+                  </select>
+      </div>
       <div class="lg:mx-36 md:mx-5 md:grid lg:grid-cols-6 grid-cols-4 gap-4 mx-5">
 
       { pokedata.map((pokemon ,index)=> {
