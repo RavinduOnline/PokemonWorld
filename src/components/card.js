@@ -88,7 +88,7 @@ const getType = (data) => {
             <div  class="absolute h-1/2	w-full rounded-bl-full rounded-br-full" style={{backgroundColor:color}} />
             <div  class="absolute h-1/2 w-full rounded-bl-full rounded-br-full opacity-5 bg-black"/>
 
-            <div  class="absolute mt-2 ml-3 text-white font-extrabold drop-shadow-md">#{index}</div>
+            <div  class="absolute mt-2 ml-3 text-white font-extrabold drop-shadow-md">#{index+1}</div>
 
             <div className='mt-5 flex  flex-col justify-end items-center'>
                   <div className='relative flex  justify-center '>
