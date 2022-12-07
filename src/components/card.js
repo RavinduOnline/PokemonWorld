@@ -32,6 +32,7 @@ export default function Card({pokemon , index} ) {
   rock: '/images/rock.png',
   fairy: '/images/fairy.png',
   poison: '/images/poison.png',
+  ground:'/images/ground.png',
   bug: '/images/bug.png',
   dragon: '/images/dragon.png',
   psychic: '/images/psychic.png',
