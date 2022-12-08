@@ -44,6 +44,7 @@ function App() {
                               <option value="500">500</option>
                               <option value="750">750</option>
                               <option value="1000">1000</option>
+                              <option value="4000">4000</option>
                         </select>
             </div>
             <div class="lg:mx-36 xl:mx-5  md:grid  lg:grid-cols-5 xl:grid-cols-6 grid-cols-4 gap-4 mx-5">
